@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Deportes</title>
+  <style>
+    html {font-family: sans-serif; text-align: center}
+    body {display: inline-block; text-align: left}
+    label, legend {font-weight: bold}
+    *:required, .obligatorio {border: thin solid blue}
+    input[type=number], .numero {text-align: right}
+    dfn {font-weight: bold}
+    br + output, fieldset + output, footer, form em {font-size: small}
+    fieldset p {margin: 0}
+    fieldset label, label * {font-weight: normal}
+    .error {color: red}
+  </style>
+  <script>
+    function mostrarInformacion() {
+      // Obtener los valores del formulario
+      var nombre = document.getElementById('nombre').value;
+      var deporte = document.getElementById('deporte').value;
+      var nivel = document.getElementById('nivel').value;
+    
+      // Mostrar los valores en pantalla
+      var info = "Nombre: " + nombre + "<br>";
+      info += "Deporte: " + deporte + "<br>";
+      info += "Nivel: " + nivel;
+    
+      document.getElementById('info').innerHTML = info;
+    
+      // Restablecer el formulario
+      document.getElementById('formulario').reset();
+    }
+  </script>
+</head>
+<body>
+  <h1>Formulario de Deportes</h1>
+  <form id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="deporte">Deporte:</label>
+    <select id="deporte" name="deporte" required>
+      <option value="">Seleccione un deporte</option>
+      <option value="futbol">Fútbol</option>
+      <option value="basquetbol">Básquetbol</option>
+      <option value="tenis">Tenis</option>
+    </select><br><br>
+
+    <label for="nivel">Nivel:</label>
+    <select id="nivel" name="nivel" required>
+      <option value="">Seleccione un nivel</option>
+      <option value="Principiante">Principiante</option>
+      <option value="Intermedio">Intermedio</option>
+      <option value="Avanzado">Avanzado</option>
+    </select><br><br>
+
+    <input type="button" value="Enviar" onclick="mostrarInformacion()">
+  </form>
+
+  <h2>Información:</h2>
+  <p id="info"></p>
+  <footer> Eduardo Ramirez Flores </footer>
+</body>
+</html>
